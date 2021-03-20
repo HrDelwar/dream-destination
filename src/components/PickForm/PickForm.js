@@ -5,7 +5,7 @@ import { useForm, Controller } from "react-hook-form";
 const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
-            margin: theme.spacing(2),
+            margin: '16px 0',
         },
         '& input[type="submit"]': {
             background: '#444644',

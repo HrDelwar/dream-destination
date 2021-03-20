@@ -7,6 +7,7 @@ import { ridesItems } from './destinationDate';
 import { useParams } from 'react-router';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import PeopleIcon from '@material-ui/icons/People';
+import { Timeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineSeparator } from '@material-ui/lab';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -16,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
         '& .MuiListItemIcon-root': {
             color: '#fff'
         },
+        alignItems: 'flex-start',
     },
     item: {
         '& .MuiAvatar-img': {
@@ -30,8 +32,12 @@ const useStyles = makeStyles((theme) => ({
             margin: '20px 0',
             borderRadius: '4px'
         },
-
-
+    },
+    column: {
+        paddingRight: "1rem",
+        [theme.breakpoints.down('sm')]: {
+            padding: '0',
+        },
     }
 }));
 
@@ -50,23 +56,27 @@ const Destination = () => {
     return (
         <Container style={{ marginTop: '2rem' }}>
             <Grid container>
-                <Grid item xs={12} sm={12} md={4} style={{ paddingRight: '2rem' }}>
+                <Grid item xs={12} sm={12} md={4} className={classes.column}>
                     {isPicked ?
                         <>
-                            <List component="nav" className={classes.root} aria-label="contacts">
-                                <ListItem button>
-                                    <ListItemIcon>
-                                        <LocationOnIcon />
-                                    </ListItemIcon>
-                                    <ListItemText primary={destinationInfo.pickFrom} />
-                                </ListItem>
-                                <ListItem button>
-                                    <ListItemIcon>
-                                        <LocationOnIcon />
-                                    </ListItemIcon>
-                                    <ListItemText primary={destinationInfo.pickTo} />
-                                </ListItem>
-                            </List>
+
+                            <Timeline className={classes.root} >
+                                <TimelineItem>
+                                    <TimelineSeparator>
+                                        <TimelineDot />
+                                        <TimelineConnector />
+                                    </TimelineSeparator>
+                                    <TimelineContent>{destinationInfo.pickFrom}</TimelineContent>
+                                </TimelineItem>
+                                <TimelineItem style={{ minHeight: "40px" }}>
+                                    <TimelineSeparator>
+                                        <TimelineDot />
+                                    </TimelineSeparator>
+                                    <TimelineContent>{destinationInfo.pickTo}</TimelineContent>
+                                </TimelineItem>
+
+                            </Timeline>
+
                             <List component="ul" aria-label="contacts" className={classes.item}>
                                 {
                                     ridesTypes.map(ridesItem => (
@@ -80,7 +90,7 @@ const Destination = () => {
                                                 {ridesItem.capability}
                                             </IconButton>
                                             <IconButton size="small" color="primary">
-                                                <AttachMoneyIcon /> 
+                                                <AttachMoneyIcon />
                                                 {ridesItem.demand}
                                             </IconButton>
                                         </CardActions>

@@ -4,6 +4,7 @@ import { getGoogleProvider, getGithubProvider, signInWithProviderFirebase, creat
 import { UserContext } from '../../App';
 import { useForm, Controller } from "react-hook-form";
 import { useHistory, useLocation } from 'react-router';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -165,8 +166,8 @@ const Login = () => {
                     </Grid>
 
                     <Grid container justify='center' style={{ alignItems: 'center', flexDirection: 'column' }}>
-                        <Button variant="outlined" onClick={() => signInWithProvider(googleProvider)} style={{ marginBottom: '1rem' }}>Continue with google</Button>
-                        <Button variant="outlined" onClick={() => signInWithProvider(githubProvider)} >Continue with Github</Button>
+                        <Button startIcon="G" variant="outlined" onClick={() => signInWithProvider(googleProvider)} style={{ marginBottom: '1rem' }}>Continue with google</Button>
+                        <Button startIcon={<GitHubIcon/>} variant="outlined" onClick={() => signInWithProvider(githubProvider)} >Continue with Github</Button>
                     </Grid>
                     <Typography align='center' color="error">{loggedUser.error && loggedUser.error}</Typography>
                 </Grid>
