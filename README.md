@@ -5,6 +5,7 @@
  * Add react basic and private route.
  * Handle page not found with back button.
  * Added google map.
+ * Google map direction with search field
  * Designed with [material-UI](https://material-ui.com/).
  * Form validation with [react-hook-form](https://react-hook-form.com/).
 

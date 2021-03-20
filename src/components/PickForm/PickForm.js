@@ -22,8 +22,8 @@ const PickForm = ({ setDestinationInfo, setIsPicked }) => {
 
     const { handleSubmit, control, errors, } = useForm();
     const onSubmit = data => {
-        setDestinationInfo(data);
         setIsPicked(true);
+        setDestinationInfo(data);
     }
     return (
         <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)} className={classes.root}>
@@ -44,6 +44,27 @@ const PickForm = ({ setDestinationInfo, setIsPicked }) => {
                     required: {
                         value: true,
                         message: 'You must specify destination location'
+                    },
+                }}
+            />
+
+            <Controller as={TextField} required fullWidth type="date" name="date" control={control} id="outlined-basic" variant="outlined"
+               error={errors.date && errors.date.message}
+               helperText={errors.date && errors.date.message}
+               rules={{
+                    required: {
+                        value: true,
+                        message: 'You must specify Date'
+                    },
+                }}
+            />
+            <Controller as={TextField} required fullWidth type="time" name="time" control={control} id="outlined-basic" variant="outlined"
+               error={errors.time && errors.time.message}
+               helperText={errors.time && errors.time.message}
+               rules={{
+                    required: {
+                        value: true,
+                        message: 'You must specify time'
                     },
                 }}
             />
