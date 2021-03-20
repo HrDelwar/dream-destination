@@ -13,6 +13,7 @@
 
 #file
 /src/components/Login/firebase.config.js
+/src/components/Map/mapKey.js
 
 # misc
 .DS_Store

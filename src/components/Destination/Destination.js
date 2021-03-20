@@ -45,7 +45,7 @@ const Destination = () => {
     const [destinationInfo, setDestinationInfo] = useState({});
     const [isPicked, setIsPicked] = useState(false);
 
-    console.log(destinationInfo);
+
 
     return (
         <Container style={{ marginTop: '2rem' }}>
