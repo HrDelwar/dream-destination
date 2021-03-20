@@ -110,7 +110,7 @@ const Header = () => {
             <AppBar position="static" color="inherit">
                 <Toolbar>
                     <Hidden mdUp>
-                        <IconButton onClick={toggleDrawer(<MenuIcon />, true)} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                        <IconButton onClick={toggleDrawer( true)} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                             <MenuIcon />
                         </IconButton>
                         <Drawer open={state} onClose={toggleDrawer(false)}>
