@@ -25,7 +25,7 @@ function Map({ destinationInfo }) {
             >
                 {
                     destinationInfo.pickTo && destinationInfo.pickFrom && <DirectionsService
-                        options={{
+                        options= {{
                             destination: destinationInfo.pickTo,
                             origin: destinationInfo.pickFrom,
                             travelMode: 'DRIVING'
